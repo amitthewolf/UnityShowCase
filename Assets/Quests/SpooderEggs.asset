@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43d3185cf7c2d74c88cc84eb25e2a55, type: 3}
+  m_Name: SpooderEggs
+  m_EditorClassIdentifier: 
+  ExpWorth: 20
+  LevelReq: 1
+  PreQuest: {fileID: 11400000, guid: dcfdce3ffcf8f704696409fb102c9fb6, type: 2}
+  QName: Egg Hunter
+  QDesc: '*Upon approaching the tree he notices the head of Morgash attached to your
+    belt, a slight smile begins to form - as much as a tree can smile*
+
+
+    YOU
+    PROVE FRIEND, FRIEND HELP I, I HELP FRIEND.
+
+
+    THE EGG PLACE IS HIDDEN.
+
+    THERE
+    ARE TREES THAT BLOCK THE ENTRANCE.
+
+    THESE TREES ARE LIES.
+
+    THEY ARE NOT
+    ONE OF US.
+
+
+    FRIEND FIND IT IN SOUTH-EASTERN PART OF VALLEY.
+
+    GOODBYE
+    FRIEND.
+
+
+    *Go and talk to Gallius*
+
+'
+  QObj: Find Tak'talla
+  ObjCompleted: 8

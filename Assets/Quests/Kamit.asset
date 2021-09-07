@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43d3185cf7c2d74c88cc84eb25e2a55, type: 3}
+  m_Name: Kamit
+  m_EditorClassIdentifier: 
+  ExpWorth: 15
+  LevelReq: 1
+  QName: Kamit Attacks!
+  QDesc: ' kill kamit plz kill kamit plz kill kamit plz kill kamit plz kill kamit
+    plz kill kamit plz kill kamit plz kill kamit plz kill kamit plz kill kamit plz
+    kill kamit plz kill kamit plz kill kamit plz'
+  QObj: Slay Kamit The Boy in the Giftwoods.
+  Completed: 0
+  ObjNum: 0
+  ObjCompleted: 1

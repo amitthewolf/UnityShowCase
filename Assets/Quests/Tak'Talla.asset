@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43d3185cf7c2d74c88cc84eb25e2a55, type: 3}
+  m_Name: Tak'Talla
+  m_EditorClassIdentifier: 
+  ExpWorth: 25
+  LevelReq: 2
+  PreQuest: {fileID: 11400000, guid: dcfdce3ffcf8f704696409fb102c9fb6, type: 2}
+  QName: Tak'talla the Grudge-bearer
+  QDesc: "Good, you survived!  I didn't wanna scare you before but you're the fifth
+    adventurer they sent me to help, I was starting to think I'd have to do it myself,
+    but thankfully it seems your reliabe enough.\n\nSo, you can kill spiders - that's
+    good, because your next step will take you to their hatchery which will no doubt
+    be well-gaurded. But, there's a catch - You're gonna need to find it first. I
+    know, you'd think a huge spider den would be easily spotted, but somehow it isn't.
+    \n\nTry speaking with Tak'talla the ancient tree, hes kind of an asshole so try
+    and be nice. He won't tell me where the den is because he caught me defecating
+    near a tree once, and apparently it was his daughter or something. Anyway, hes
+    in the north-eastern part of this valley.\n\nOh, and just to make sure, dont
+    defecate. Like at all."
+  QObj: Find Tak'talla (Without Defecating)
+  ObjCompleted: 1

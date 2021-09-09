@@ -186,6 +186,7 @@ public class WindowManager : MonoBehaviour
                 TutorialOver = true;
             }
             AAHandler.AAEnabled = true;
+
         }
         else
         {
@@ -205,12 +206,14 @@ public class WindowManager : MonoBehaviour
     public void ToggleQuestOffer(bool state)
     {
         if (state)
+        {
+            ToggleInteract(false);
             AAHandler.AAEnabled = false;
+        }
         else
         {
             AAHandler.AAEnabled = true;
         }
         QuestOffer.gameObject.SetActive(state);
     }
-
 }

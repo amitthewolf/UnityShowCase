@@ -119,12 +119,12 @@
     <Compile Include="Assets\Scripts\Player\CharacterPanel.cs" />
     <Compile Include="Assets\Scripts\Player\DotManager.cs" />
     <Compile Include="Assets\Scripts\Player\HotManager.cs" />
-    <Compile Include="Assets\Scripts\Player\IDot.cs" />
-    <Compile Include="Assets\Scripts\Player\IHot.cs" />
-    <Compile Include="Assets\Scripts\Player\ISpell.cs" />
     <Compile Include="Assets\Scripts\Player\PetAI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\IDot.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\IHot.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\ISpell.cs" />
     <Compile Include="Assets\Scripts\Player\Spells\Ranger\BearTrap.cs" />
     <Compile Include="Assets\Scripts\Player\Spells\Ranger\BearTrapCaster.cs" />
     <Compile Include="Assets\Scripts\Player\Spells\Ranger\Bite.cs" />
@@ -149,8 +149,8 @@
     <Compile Include="Assets\Scripts\Player\Spells\Ranger\WaspSwarm.cs" />
     <Compile Include="Assets\Scripts\Player\Spells\Ranger\WaspSwarmDot.cs" />
     <Compile Include="Assets\Scripts\Player\Spells\SpellHandler.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\Trap.cs" />
     <Compile Include="Assets\Scripts\Player\TalentTree.cs" />
-    <Compile Include="Assets\Scripts\Player\Trap.cs" />
     <Compile Include="Assets\Scripts\Questing\Quest.cs" />
     <Compile Include="Assets\Scripts\Questing\QuestInLog.cs" />
     <Compile Include="Assets\Scripts\Questing\QuestManager.cs" />

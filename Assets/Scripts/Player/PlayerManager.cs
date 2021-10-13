@@ -50,15 +50,14 @@ public class PlayerManager : MonoBehaviour
     public static Vector3 MousePos;
     public static Vector3 aimDirection;
 
+    /*
+     * Singleton Design Pattern
+     */
     private void Awake()
     {
         instance = this;
     }
 
-    public void CheckText()
-    {
-        Debug.Log("CheckTest Called");
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -76,11 +75,19 @@ public class PlayerManager : MonoBehaviour
         WM = GameObject.FindGameObjectWithTag("GM");
     }
 
+    /// <summary>
+    /// Add flat percentage of damage mitigation.
+    /// </summary>
+    /// <param name="AddDmgResistance"> Flat percentage of damage mitigation to add.</param>
     public static void AddDmgResistance(float AddDmgResistance)
     {
         DamageResistance = DamageResistance + AddDmgResistance;
     }
 
+    /// <summary>
+    /// Remove flat percentage of damage mitigation.
+    /// </summary>
+    /// <param name="AddDmgResistance"> Flat percentage of damage mitigation to remove.</param>
     public static void RemoveDmgResistance(float AddDmgResistance)
     {
         DamageResistance = DamageResistance - AddDmgResistance;
@@ -104,7 +111,10 @@ public class PlayerManager : MonoBehaviour
         return Target;
     }
 
-
+    /// <summary>
+    /// Used to Pull the current target from the player to the AI Pet.
+    /// </summary>
+    /// <returns></returns>
     internal static Collider2D getAttackingTarget()
     {
         return AttackingTarget;
@@ -116,17 +126,26 @@ public class PlayerManager : MonoBehaviour
         Target = null;
     }
 
+    /// <summary>
+    /// Called when current target dies. Resets the player target field.
+    /// </summary>
     internal static void ResetTarget()
     {
         Target = null;
     }
 
+    /// <summary>
+    /// Called when pet target dies. Resets the AttackingTarget field.
+    /// </summary>
     internal static void ResetAttackingTarget()
     {
         AttackingTarget = null;
     }
 
-
+    /// <summary>
+    /// Called when dealing damage to a target, transfers target to pet.
+    /// </summary>
+    /// <param name="target">Damaged target</param>
     public static void SetAttackingTarget(Collider2D target)
     {
         if (AttackingTarget != null)
@@ -136,7 +155,10 @@ public class PlayerManager : MonoBehaviour
         AttackingTarget = target;
         AttackingTarget.GetComponent<EnemyGeneral>().TargetedByPet = true;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="target"></param>
     public static void SetTarget(Collider2D target)
     {
         if (Target != null)
@@ -151,16 +173,22 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region regen
+    /// <summary>
+    /// Regeneration of health and resources.
+    /// </summary>
     private void BothRegenTick()
     {
         LastTick = Time.time;
-        if (Health < MaxHealth)
+        if (Health < MaxHealth && Health < MaxHealth)
             Health = Health +0.05f;
         if (Health > MaxHealth)
             Health = MaxHealth;
         ResourceTick();
     }
 
+    /// <summary>
+    /// Manages resource regeneration
+    /// </summary>
     private void ResourceTick()
     {
         if(FocusOn)
@@ -179,6 +207,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add experience points to player. Called when enemies die or quests are completed.
+    /// </summary>
+    /// <param name="ExpGained">Experience to gain</param>
     public void GainExp(int ExpGained)
     {
         Exp += ExpGained;
@@ -203,26 +235,41 @@ public class PlayerManager : MonoBehaviour
     #region Resources
 
     #region Focus
+    /// <summary>
+    /// Returns the relational state of the current focus amount.
+    /// </summary>
+    /// <returns>Relational state of the current focus amount</returns>
     public static float GetFocusState()
     {
         return Focus / MaxFocus;
     }
-
+    /// <summary>
+    /// Returns the Max focus value.
+    /// </summary>
+    /// <returns>Max focus value</returns>
     public static float GetMaxFocus()
     {
         return MaxFocus;
     }
-
+    /// <summary>
+    /// Returns the current focus amount.
+    /// </summary>
+    /// <returns>Current focus amount</returns>
     public static float GetCurrFocus()
     {
         return Focus;
     }
-
+    /// <summary>
+    /// Returns true if focus is enabled and false otherwise.
+    /// </summary>
+    /// <returns>True if focus is enabled and false otherwise</returns>
     public static bool GetFocusOn()
     {
         return FocusOn;
     }
-
+    /// <summary>
+    /// Enables the focus resource
+    /// </summary>
     public static void LearnFocus()
     {
         FocusOn = true;
@@ -230,6 +277,10 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Rage
+    /// <summary>
+    /// Adds rage resource
+    /// </summary>
+    /// <param name="ToAdd">Float amount of rage to add</param>
     public static void AddRage(float ToAdd)
     {
         if(Rage + ToAdd >= MaxRage)
@@ -241,26 +292,41 @@ public class PlayerManager : MonoBehaviour
             Rage = Rage + ToAdd;
         }
     }
-
+    /// <summary>
+    /// Returns the relational state of the current rage amount.
+    /// </summary>
+    /// <returns>Relational state of the current rage amount.</returns>
     public static float GetRageState()
     {
         return Rage / MaxRage;
     }
-
+    /// <summary>
+    /// Returns the max amount of rage possible.
+    /// </summary>
+    /// <returns>Max amount of rage possible</returns>
     public static float GetMaxRage()
     {
         return MaxRage;
     }
-
+    /// <summary>
+    /// Returns the current amount of rage possible.
+    /// </summary>
+    /// <returns>Current amount of rage possible</returns>
     public static float GetCurrRage()
     {
         return Focus;
     }
-
+    /// <summary>
+    /// Enables the Rage resource
+    /// </summary>
     public static void LearnRage()
     {
         RageOn = true;
     }
+    /// <summary>
+    /// returns true if the rage resource is enabled.
+    /// </summary>
+    /// <returns>True if rage is enabled and false otherwise</returns>
     public static bool GetRageOn()
     {
         return RageOn;
@@ -268,6 +334,9 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Spears
+    /// <summary>
+    /// Adds a spear to the spear resource
+    /// </summary>
     public static void AddSpear()
     {
         spears++;
@@ -275,23 +344,33 @@ public class PlayerManager : MonoBehaviour
             spears = MaxSpears;
         WM.GetComponent<WindowManager>().AddSpear();
     }
-
+    /// <summary>
+    /// Removes 1 spear from the spear resource
+    /// </summary>
     public static void RemoveSpear()
     {
         spears--;
         WM.GetComponent<WindowManager>().RemoveSpear();
     }
-
+    /// <summary>
+    ///  returns the current amount of spears.
+    /// </summary>
+    /// <returns>Current amount of spears</returns>
     public static int GetSpears()
     {
         return spears;
     }
-
+    /// <summary>
+    /// returns true if the spear resource is enabled and false otherwise
+    /// </summary>
+    /// <returns>True if the spear resource is enabled and false otherwise</returns>
     public static bool GetSpearsOn()
     {
         return SpearsOn;
     }
-
+    /// <summary>
+    /// Enables the spear resource.
+    /// </summary>
     public static void LearnSpears()
     {
         SpearsOn = true;
@@ -301,26 +380,41 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Mana
+    /// <summary>
+    /// Returns the relational state of the current mana amount.
+    /// </summary>
+    /// <returns>Relational state of the current mana amount</returns>
     public static float GetManaState()
     {
         return Mana / MaxMana;
     }
-
+    /// <summary>
+    /// returns the max amount of mana possible.
+    /// </summary>
+    /// <returns>Max amount of mana possible.</returns>
     public static float GetMaxMana()
     {
         return MaxMana;
     }
-
+    /// <summary>
+    /// returns the current amount of mana.
+    /// </summary>
+    /// <returns>Current amount of mana</returns>
     public static float GetCurrMana()
     {
         return Mana;
     }
-
+    /// <summary>
+    /// Returns true if the mana resource is enabled and false otherwise.
+    /// </summary>
+    /// <returns>True if the mana resource is enabled and false otherwise.</returns>
     public static bool GetManaOn()
     {
         return ManaOn;
     }
-
+    /// <summary>
+    /// Enables the mana resource, called when the Druid branch is taken.
+    /// </summary>
     public static void LearnMana()
     {
         ManaOn = true;
@@ -328,19 +422,28 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #endregion
-
+    /// <summary>
+    /// This function is called periodically to track the player's aiming.
+    /// </summary>
     private void HandleAiming()
     {
         MousePos = UtilsClass.GetMouseWorldPosition();
         aimDirection = (MousePos - transform.position).normalized;
 
     }
-
+    /// <summary>
+    /// returns the current aim direction as a Vector3 variable.
+    /// </summary>
+    /// <returns></returns>
     public static Vector3 GetAim()
     {
         return aimDirection;
     }
 
+    /// <summary>
+    /// Reduces health by the given amount in the argument.
+    /// </summary>
+    /// <param name="Damage">The amount of health to reduce.</param>
     public void TakeDmg(float Damage)
     {
         Damage = Damage * (1-DamageResistance);
@@ -350,7 +453,10 @@ public class PlayerManager : MonoBehaviour
         if (Health <= 0)
             SceneManager.LoadScene(1);
     }
-
+    /// <summary>
+    /// Adds a given amount of health to the player.
+    /// </summary>
+    /// <param name="heal">Amount of health to add.</param>
     public void Heal(float heal)
     {
         GameObject DmgText = Instantiate(FloatingText, transform.position, Quaternion.identity);
